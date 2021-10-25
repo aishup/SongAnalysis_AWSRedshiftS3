@@ -35,15 +35,3 @@ Analytic Queries:
 SELECT COUNT(*)
 FROM songplays
 
-2. Following query was run to calculates the most frequently played song, calling on the songplays, artists and songs tables:
-
-SELECT a.name, so.title, COUNT(so.title) FROM songplays sp
-JOIN artists a
-ON a.artist_id = sp.artist_id
-JOIN songs so
-ON sp.song_id = so.song_id
-GROUP BY 1, 2
-ORDER BY 3 DESC
-LIMIT 1
-
-output : Dwight Yoakam / You're The One/ 37
