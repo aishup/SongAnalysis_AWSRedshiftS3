@@ -2,7 +2,7 @@ About the Project:
 ------------------
 A music streaming startup, Sparkify, has grown their user base and song database and want to move their processes and data onto the cloud. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
-To find what songs users are listening in the app, Datawarehousing concepts are applied by building a ETL pipeline in AWS. Data is loaded S3 to staging tables on Redshift and execute SQL statements that create the analytics tables from these staging tables.
+To find what songs users are listening in the app, Datawarehousing concepts are applied by building a ETL pipeline in AWS. Data is loaded from S3->staging tables->Analytic DB Tables in Redshift.
 
 Database Schema Design:
 -----------------------
@@ -24,7 +24,7 @@ Repository Files:
 ETL Pipeline Process:
 ---------------------
 1. Redshift cluster is created in AWS .
-2. Staging tables 'staging_events' and 'staging_songs' are created . JSON files are pulled from S3 and data is copied into the tables without any modification.
+2. Staging tables 'staging_events' and 'staging_songs' are created . JSON files are pulled from S3 and data is copied into the staging tables without any modification.
 3. New fact table(songplays) and dimension tables(time,users,songs,artists) are designed by following the Star Schema
 4. SQL Insert queries are run to Select the data from staging tables and loaded into their respective table columns in proper data format.
 
